@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jia Ning my Valentine's</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #ffccd5;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: #d63384;
+            animation: fadeIn 2s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 5px #ff69b4;
+            animation: heartbeat 2s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 3px 3px 10px #ff1493;
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        .messages {
+            margin-top: 30px;
+            font-size: 1.2em;
+            background: #ff85a2;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px #ff4081;
+        }
+
+        form {
+            margin-top: 30px;
+            padding: 15px;
+            background: #ffb3c6;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px #ff4081;
+        }
+
+        .checkbox-group label {
+            display: block;
+            margin: 5px;
+            font-size: 1.1em;
+            color: #d63384;
+        }
+
+        .checkbox-group input {
+            margin-right: 10px;
+        }
+
+        button {
+            background: #ff4081;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #d63384;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will you be my Valentine? 💕</h1>
+
+        <div class="valentine-question">
+            <button onclick="valentineResponse(true)">Yes! 💖</button>
+            <button onclick="valentineResponse(false)">No 😢</button>
+        </div>
+        
+        <div class="gallery">
+            <script>
+                for (let i = 1; i <= 35; i++) {
+                    document.write(`<img src="./Photos/photo${i}.jpg" alt="Memory ${i}">`);
+                }
+            </script>
+        </div>
+        
+        <!-- <div class="messages">
+            <p>"You are my heart, my joy, and my everything. Happy Valentine's Day!"</p>
+            <p>"Every moment with you is a dream come true. Love you forever!"</p>
+        </div> -->
+        
+        <form id="valentineForm">
+            <h2>Pick Our Valentine's Plans 💖</h2>
+            <label>Choose a romantic meal:</label>
+            <div class="checkbox-group" id="food">
+                <label><input type="checkbox" value="Hot Pot 🍲"> Hot Pot 🍲</label>
+                <label><input type="checkbox" value="Pho 🥣"> Pho 🥣</label>
+                <label><input type="checkbox" value="Sushi 🍣"> Sushi 🍣</label>
+                <label><input type="checkbox" value="Ramen 🍜"> Ramen 🍜</label>
+                <label><input type="checkbox" value="Surprise Me 🍔"> Surprise Me 🍔</label>
+            </div>
+            
+            <br><br>
+            
+            <label>Choose a date activity:</label>
+            <div class="checkbox-group" id="location">
+                <label><input type="checkbox" value="Amusement Arcade 🎡"> Amusement Arcade 🎡</label>
+                <label><input type="checkbox" value="Fun Workshop 🛠️"> Fun Workshop 🛠️</label>
+                <label><input type="checkbox" value="Chinatown ⛩️"> Chinatown ⛩️</label>
+                <label><input type="checkbox" value="Binge Movies 🎥"> Binge Movies 🎥</label>
+                <label><input type="checkbox" value="Take You On An Adventure 🚀"> Take You On An Adventure 🚀</label>
+            </div>
+            
+            <br><br>
+            <button type="submit">Save Plans</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("valentineForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let foodChoices = Array.from(document.querySelectorAll("#food input:checked")).map(input => input.value).join(", ");
+            let locationChoices = Array.from(document.querySelectorAll("#location input:checked")).map(input => input.value).join(", ");
+            alert(`Our Valentine's plans: Enjoying some ${foodChoices} and going to ${locationChoices}! 💖`);
+        });
+
+        function valentineResponse(answer) {
+            if (answer) {
+                alert("YAYYYYYYY I LOVE YOU SO MUCH BAE HEHEHEHE");
+            } else {
+                alert("NOOOOOOOOOOOOOO... but I still love you bae!!!");
+            }
+        }
+    </script>
+</body>
+</html>
